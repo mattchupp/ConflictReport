@@ -55,17 +55,13 @@ public class Conflict  {
          
          
       
-			results = query.executeQuery();  
+			results = query.executeQuery();
+           
          Set<Integer> csis_courses = new TreeSet<>();
          Map<String, Map<Integer, Map<Integer, Double>>> dept_map = new TreeMap<>();
+         
 			while (results.next()) {
-            // (1) = STUDENT_COURSE.SC_DEPT_CODE
-            // (2) = STUDENT_COURSE.SC_CRS_NUMBER
-            // (3) = STUDENT_COURSE_1.SC_DEPT_CODE
-            // (4) = STUDENT_COURSE_1.SC_CRS_NUMBER
-            // (5) = STUDENT_COURSE.SC_SEMESTER
             
-            //String array[][] = new String[100][20];
             Integer csis_course = results.getInt(2);
             String dept = results.getString(3);
             Integer course = results.getInt(4);
@@ -78,24 +74,11 @@ public class Conflict  {
             Map<Integer, Double> conflict_map = course_map.get(course);
             if (conflict_map == null)
                course_map.put(course, conflict_map = new TreeMap<>());
-            conflict_map.put(csis_course, conflict);
+            conflict_map.put(csis_course, conflict);    
             
-            
-            /*System.out.printf("%s   %s    %s    %s    %s \n", 
-                              results.getString(1),
-                              results.getString(2),
-                              results.getString(3),
-                              results.getString(4),
-                              results.getString(6));*/
-
-              
-
-
-            
-             
-         
-		      // System.out.println(results.getString(1));
 			}
+         
+         
          System.out.print("CSIS");
          for (Integer csis_course : csis_courses)
             System.out.print("\t" + csis_course);
@@ -118,6 +101,7 @@ public class Conflict  {
                System.out.println();
             }
          }
+         
 		} catch (Exception problem){
 
 			System.out.println(problem.getMessage());
