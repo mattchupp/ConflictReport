@@ -63,9 +63,19 @@ public class Conflict  {
             // (4) = STUDENT_COURSE_1.SC_CRS_NUMBER
             // (5) = STUDENT_COURSE.SC_SEMESTER
             
-            // String[][] course = new String[][5]; 
+            // String[][] course = new String[][];  
+            
+            System.out.printf("%s   %s    %s    %s    %s \n", 
+                              results.getString(1),
+                              results.getString(2),
+                              results.getString(3),
+                              results.getString(4),
+                              results.getString(5)); 
+
+            
+             
          
-		      System.out.println(results.getString(1));
+		      // System.out.println(results.getString(1));
 			}
 		} catch (Exception problem){
 
