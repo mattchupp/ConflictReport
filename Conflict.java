@@ -21,8 +21,8 @@ public class Conflict  {
 	    try {
 			OracleDataSource ods = new OracleDataSource();
 			ods.setURL(connString);
-			ods.setUser("rjpleva");
-			ods.setPassword("RJPLEVA");
+			ods.setUser("mlchupp");
+			ods.setPassword("MLCHUPP");
 
 			odb = ods.getConnection();
 		   
@@ -34,12 +34,12 @@ public class Conflict  {
          query = odb.prepareStatement("SELECT STUDENT_COURSE.SC_DEPT_CODE, "+
             "STUDENT_COURSE.SC_CRS_NUMBER, STUDENT_COURSE_1.SC_DEPT_CODE, "+
             "STUDENT_COURSE_1.SC_CRS_NUMBER, STUDENT_COURSE.SC_SEMESTER, "+
-            "conflictNum(STUDENT_COURSE.SC_DEPT_CODE, "+
+            "conflictNumber(STUDENT_COURSE.SC_DEPT_CODE, "+
             "STUDENT_COURSE.SC_CRS_NUMBER, STUDENT_COURSE_1.SC_DEPT_CODE, "+
             "STUDENT_COURSE_1.SC_CRS_NUMBER,STUDENT_COURSE.SC_SEMESTER) " +
-            "FROM rjpleva.STUDENT_CONFIDENTIAL STUDENT_CONFIDENTIAL, "+
-            "rjpleva.STUDENT_COURSE STUDENT_COURSE, "+
-            "rjpleva.STUDENT_COURSE STUDENT_COURSE_1 "+
+            "FROM mlchupp.STUDENT_CONFIDENTIAL STUDENT_CONFIDENTIAL, "+
+            "mlchupp.STUDENT_COURSE STUDENT_COURSE, "+
+            "mlchupp.STUDENT_COURSE STUDENT_COURSE_1 "+
             "WHERE STUDENT_CONFIDENTIAL.SC_ID = STUDENT_COURSE.SC_STD_ID "+
             "AND STUDENT_CONFIDENTIAL.SC_ID = STUDENT_COURSE_1.SC_STD_ID "+
             "AND STUDENT_COURSE.SC_SEMESTER = STUDENT_COURSE_1.SC_SEMESTER "+
@@ -52,8 +52,7 @@ public class Conflict  {
             " STUDENT_COURSE.SC_SEMESTER ORDER BY STUDENT_COURSE.SC_DEPT_CODE,"+
             " STUDENT_COURSE.SC_CRS_NUMBER, STUDENT_COURSE_1.SC_DEPT_CODE, "+
             "STUDENT_COURSE_1.SC_CRS_NUMBER"); 
-         
-         
+              
       
 			results = query.executeQuery();
            
