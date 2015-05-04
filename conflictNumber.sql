@@ -1,3 +1,8 @@
+-- Matt Chupp
+-- mlchupp
+-- Database
+-- conflictNumber.sql
+
 create or replace function conflictNumber(dept_code1 in VARCHAR2,
 									   	  crs_num1 in INTEGER,
 									      dept_code2 in VARCHAR2,
